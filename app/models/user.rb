@@ -35,12 +35,12 @@ class User < ActiveRecord::Base
 
   ## TODO 実装
   def have(item)
-	ownerships.find_or_create_by(item_id: item.id)
+	haves.find_or_create_by(item_id: item.id)
   end
 
   def unhave(item)
-	  ownership = have.find_by(item_id: item.id)
-	  ownership.destroy if ownership
+	  have = haves.find_by(item_id: item.id)
+	  have.destroy if have
   end
 
   def have?(item)
@@ -48,12 +48,12 @@ class User < ActiveRecord::Base
   end
 
   def want(item)
-	  ownerships.find_or_create_by(item_id: item.id)
+	  wants.find_or_create_by(item_id: item.id)
   end
 
   def unwant(item)
-	  ownership = want.find_by(item_id: item.id)
-	  ownership.destroy if ownership
+	  want = want.find_by(item_id: item.id)
+	  want.destroy if want
   end
 
   def want?(item)
