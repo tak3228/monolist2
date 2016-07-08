@@ -26,16 +26,16 @@ class OwnershipsController < ApplicationController
     # params[:type]の値にHaveボタンが押された時には「Have」,
     # Wantボタンが押された時には「Want」が設定されています。
     
-    if prams[:type] =="Have"
-    	@item = Item.find(params[:item_id])
+    if params[:type] =="Have"
     	current_user.have(@item)
     end
 
    
     if params[:type] == "Want"
-    	@item = Item.find(params[:item_id])
-    	current_user.want(@item)
+     	current_user.want(@item)
     end
+  end
+
 
   def destroy
     @item = current_user.Want.find(params[:item_id]).want
