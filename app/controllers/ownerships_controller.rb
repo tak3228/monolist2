@@ -27,13 +27,15 @@ class OwnershipsController < ApplicationController
     # Wantボタンが押された時には「Want」が設定されています。
     
     if prams[:type] =="Have"
-    @item = Item.find(params[:item_id])
-    current_user.want(@item)
-    
-    @item = Item.find(params[:item_id])
-    current_user.have(@item)
+    	@item = Item.find(params[:item_id])
+    	current_user.have(@item)
+    end
 
-  end
+   
+    if params[:type] == "Want"
+    	@item = Item.find(params[:item_id])
+    	current_user.want(@item)
+    end
 
   def destroy
     @item = current_user.Want.find(params[:item_id]).want
