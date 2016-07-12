@@ -1,24 +1,20 @@
 <div class="container">
 	<div class="container-inner inner-default clearfix">
-		<%= @items.each do |id| %>
+		<% @items.each do |id| %>
 		<div class="container">
 			<div class="container-inner inner-sm clearfix">
 				<div class="item-single-main">
 					<div class="image">
 						<div class="img-wrap">
-
 							<img src="<%= id.large_image %>">
 						</div>
 					</div>
 					<div class="title">
-
 						<%= id.title.truncate(38, omission: '...') %>
 					</div>
-
 				</div>
-
-				<% end %>
 			</div>
 		</div>
+		<% end %>
 	</div>
 </div>
